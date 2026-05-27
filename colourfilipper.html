@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Colour Flipper</title>
+  <style>
+    body {
+      text-align: center;
+      transition: background-color 0.5s ease;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin-top: 100px;
+    }
+
+    .container {
+      display: inline-block;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Background Colour: <span id="color-name">#ffffff</span></h1>
+    <button id="color-btn">Flip Colour</button>
+  </div>
+
+  <script>
+    // Array of predefined colors
+    const colors = [
+      "red", "blue", "green", "yellow", "purple", "orange",
+      "pink", "teal", "brown", "#3498db", "#e74c3c", "#2ecc71"
+    ];
+
+    // Get DOM elements
+    const button = document.getElementById("color-btn");
+    const colorName = document.getElementById("color-name");
+
+    // Add click event listener
+    button.addEventListener("click", function () {
+      // Generate a random index
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      const randomColor = colors[randomIndex];
+
+      // Change background color
+      document.body.style.backgroundColor = randomColor;
+
+      // Update displayed color name
+      colorName.textContent = randomColor;
+    });
+  </script>
+</body>
+</html>
